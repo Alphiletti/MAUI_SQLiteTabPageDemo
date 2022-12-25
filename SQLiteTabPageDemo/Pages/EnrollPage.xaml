@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SQLiteTabPageDemo.EnrollPage"
+             Title="EnrollPage">
+    
+        <VerticalStackLayout>
+            <Grid ColumnDefinitions="*,*"
+                  RowDefinitions="*,*">
+                <Grid ColumnDefinitions="*,*,*"
+                      Grid.Row="0"
+                      Grid.Column="0">
+                    <Label Grid.Column="0"
+                           Text="Student ID"
+                           HorizontalOptions="Center"
+                           TextDecorations="Underline"
+                           FontAttributes="Bold" />
+                    <Label Grid.Column="1"
+                           Text="Student Name"
+                           HorizontalOptions="Center"
+                           TextDecorations="Underline"
+                           FontAttributes="Bold" />
+                    <Label Grid.Column="2"
+                           Text="Student Department"
+                           HorizontalOptions="Center"
+                           TextDecorations="Underline"
+                           FontAttributes="Bold" />
+                </Grid>
+                <ListView x:Name="studentListView"
+                          HasUnevenRows="True"
+                          Grid.Row="1" Grid.Column="0"
+                          ItemTapped="studentListView_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnDefinitions="*,*,*">
+                                    <Label Grid.Column="0"
+                                           Text="{Binding Id}"
+                                           HorizontalOptions="Center"/>
+                                    <Label Grid.Column="1"
+                                           Text="{Binding StudentName}"
+                                           HorizontalOptions="Center"/>
+                                    <Label Grid.Column="2"
+                                           Text="{Binding StudentDepartment}"
+                                           HorizontalOptions="Center"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Grid ColumnDefinitions="*,*,*"
+                      Grid.Row="0"
+                      Grid.Column="1">
+                    <Label Grid.Column="0"
+                           Text="Course ID"
+                           HorizontalOptions="Center"
+                           TextDecorations="Underline"
+                           FontAttributes="Bold" />
+                    <Label Grid.Column="1"
+                           Text="Course Code"
+                           HorizontalOptions="Center"
+                           TextDecorations="Underline"
+                           FontAttributes="Bold" />
+                    <Label Grid.Column="2"
+                           Text="Course Name"
+                           HorizontalOptions="Center"
+                           TextDecorations="Underline"
+                           FontAttributes="Bold" />
+                </Grid>
+
+                <ListView x:Name="courseListView"
+                          HasUnevenRows="True"
+                          Grid.Row="1"
+                          Grid.Column="1"
+                          ItemTapped="courseListView_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnDefinitions="*,*,*">
+                                    <Label Grid.Column="0"
+                                           Text="{Binding Id}"
+                                           HorizontalOptions="Center"/>
+                                    <Label Grid.Column="1"
+                                           Text="{Binding CourseCode}"
+                                           HorizontalOptions="Center"/>
+                                    <Label Grid.Column="2"
+                                           Text="{Binding CourseName}"
+                                           HorizontalOptions="Center"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+
+        <Button Text="Enroll"
+                WidthRequest="100"
+                HeightRequest="50" 
+                Margin="10"
+                Clicked="Enroll_Clicked"/>
+
+        <Grid ColumnDefinitions="*,*,*,*">
+            <Label Grid.Column="0"
+                   Text="Student Name"
+                   HorizontalOptions="Center"
+                   TextDecorations="Underline"
+                   FontAttributes="Bold" />
+            <Label Grid.Column="1"
+                   Text="Student Department"
+                   HorizontalOptions="Center"
+                   TextDecorations="Underline"
+                   FontAttributes="Bold" />
+            <Label Grid.Column="2"
+                   Text="Course Code"
+                   HorizontalOptions="Center"
+                   TextDecorations="Underline"
+                   FontAttributes="Bold" />
+            <Label Grid.Column="3"
+                   Text="Course Name"
+                   HorizontalOptions="Center"
+                   TextDecorations="Underline"
+                   FontAttributes="Bold" />
+        </Grid>
+
+        <ListView HasUnevenRows="True"
+                  x:Name="enrollListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnDefinitions="*,*,*,*">
+                            <Label Grid.Column="0"
+                                   Text="{Binding StudentName}"
+                                   HorizontalOptions="Center" />
+                            <Label Grid.Column="1"
+                                   Text="{Binding StudentDept}"
+                                   HorizontalOptions="Center" />
+                            <Label Grid.Column="2"
+                                   Text="{Binding CourseCode}"
+                                   HorizontalOptions="Center" />
+                            <Label Grid.Column="3"
+                                   Text="{Binding CourseName}"
+                                   HorizontalOptions="Center" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+    
+</ContentPage>

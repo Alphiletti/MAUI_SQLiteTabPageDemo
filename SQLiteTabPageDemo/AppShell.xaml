@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell x:Class="SQLiteTabPageDemo.AppShell"
+       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:SQLiteTabPageDemo"
+       Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <Tab Icon="dotnet_bot.png"
+             Title="Student">
+            <ShellContent ContentTemplate="{DataTemplate local:StudentPage}"
+                          Route="StudentPage" />
+        </Tab>
+
+        <Tab Title="Course"
+             Icon="dotnet_bot.png">
+            <ShellContent ContentTemplate="{DataTemplate local:CoursePage}"
+                          Route="CoursePage"/>
+        </Tab>
+
+        <Tab Title="Enroll"
+             Icon="dotnet_bot.png">
+            <ShellContent ContentTemplate="{DataTemplate local:EnrollPage}"
+                          Route="EnrollPage" />
+        </Tab>
+    </TabBar>
+
+</Shell>

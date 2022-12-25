@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SQLiteTabPageDemo.StudentPage"
+             Title="StudentPage">
+    <ScrollView>
+        <VerticalStackLayout >
+            <Label Text="STUDENT REGISTRATION"
+                   FontSize="Large"
+                   HorizontalOptions="Center"/>
+            <Entry x:Name="studentNameEntry"
+                   Placeholder="Name"
+                   HorizontalOptions="Center" 
+                   WidthRequest="150"
+                   HeightRequest="30"/>
+            <Entry x:Name="studentDeptEntry"
+                   Placeholder="Department"
+                   HorizontalOptions="Center"
+                   WidthRequest="150"
+                   HeightRequest="30" />
+            <HorizontalStackLayout Margin="10" HorizontalOptions="Center">
+                <Button WidthRequest="100"
+                        HeightRequest="50"
+                        Text="Add"
+                        Clicked="AddStudent_Clicked" />
+                <Button WidthRequest="100"
+                        HeightRequest="50"
+                        Text="Show"
+                        Clicked="ShowStudent_Clicked" />
+            </HorizontalStackLayout>
+            <Grid ColumnDefinitions="*,*,*,*">
+                <Label Grid.Column="0"
+                       Text="Student ID"
+                       HorizontalOptions="Center"
+                       TextDecorations="Underline"
+                       FontAttributes="Bold" />
+                <Label Grid.Column="1"
+                       Text="Student Name"
+                       HorizontalOptions="Center"
+                       TextDecorations="Underline"
+                       FontAttributes="Bold" />
+                <Label Grid.Column="2"
+                       Text="Student Department"
+                       HorizontalOptions="Center"
+                       TextDecorations="Underline"
+                       FontAttributes="Bold" />
+                <Label Grid.Column="3"
+                       Text="Operation"
+                       HorizontalOptions="Center"
+                       TextDecorations="Underline"
+                       FontAttributes="Bold" />
+            </Grid>
+            <ListView x:Name="studentListView"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnDefinitions="*,*,*,*">
+                                <Label Grid.Column="0"
+                                       Text="{Binding Id}"
+                                       HorizontalOptions="Center" 
+                                       VerticalOptions="Center"/>
+                                <Label Grid.Column="1"
+                                       Text="{Binding StudentName}"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center" />
+                                <Label Grid.Column="2"
+                                       Text="{Binding StudentDepartment}"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center" />
+                                <Button Text="Delete"
+                                        Clicked="DeleteStudent_Clicked" 
+                                        Grid.Column="3"
+                                        WidthRequest="100"
+                                        HeightRequest="10"
+                                        CommandParameter="{Binding Id}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
